@@ -26,6 +26,7 @@ object Main {
 		def counter(c: List[Char],acc: Int): Int =
 			if (c isEmpty) acc
 			else if (c.head == '(') counter(c.tail,acc+1)
+			else if (c.head == ')' && acc <= 0) -1/*Unopened closed bracket*/
 			else if (c.head == ')') counter(c.tail,acc-1)
 			else counter (c.tail,acc)
   	counter(chars,0) == 0
